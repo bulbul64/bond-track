@@ -1,16 +1,24 @@
-
+"use client";
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Friend } from '@/types/friend';
+import { useEffect, useState } from 'react';
 
-const FriendCard = async () => {
+const FriendCard =  () => {
 
-  const res = await fetch('http://localhost:3000/data/friends.json', {
-    cache: 'no-store',
-  });
+ const [data, setData] = useState<Friend[]>([]);
 
-  const friends = await res.json();
+  // console.log(data)
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('/data/friends.json');
+      const data = await res.json();
+      setData(data);
+    };
+
+    getData();
+  }, []);
   
   const heading = 'Your Connections';
 
@@ -32,7 +40,7 @@ const FriendCard = async () => {
         </div>
       </div>
       <div className="grid w-full grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {friends.map((friend: Friend) => {
+        {data.map((friend: Friend) => {
           const { id, name, status, picture, days_since_contact, tags } = friend;
 
           return (
