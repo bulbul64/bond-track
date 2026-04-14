@@ -19,12 +19,12 @@ export const QuickCheckInCard = ({ id }: { id: number | string }) => {
     getData();
   }, []);
 
-  const friend = data?.find((f: Friend) => f.id == Number(id));
+  const friend = data?.find((f: Friend) => f.id === Number(id));
 
   const context = useContext(interactionHistoryContext);
 
-  if (!context) return null;
-  if (!friend) return null;
+if (!context) return null;
+if (!friend) return <div>Loading...</div>;
 
   const { addInteraction } = context;
 
