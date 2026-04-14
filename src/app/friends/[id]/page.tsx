@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
         <div className="max-w-6xl mx-auto mt-20">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <div className="col-span-1  max-h-max">
               <FriendCard id={id}/>
               <Button className={btnClass}>
@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               </Button>
             </div>
             <div className="col-span-2 max-h-max">
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
                 <FriendStatsCard />
                 <ContactMetricsCard />
                 <FriendInsightCard />
