@@ -5,17 +5,14 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Pencil, } from 'lucide-react';
 import { Friend } from '@/types/friend';
+import { getFriends } from '@/lib/getFriends';
 
 type Props = {
   id: number | string;
 };
 
 export async function FriendCard({ id }: Props) {
-  const res = await fetch('http://localhost:3000/data/friends.json', {
-    cache: 'no-store',
-  });
-
-  const friends = await res.json();
+ const friends = await getFriends();
   const friend = friends.find((f: Friend) => f.id == Number(id));
 
  
