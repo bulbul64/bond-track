@@ -1,8 +1,11 @@
+
+
 import Image from 'next/image';
-import React from 'react';
+
 import { Button } from '../ui/button';
-import { Pencil, Phone, RectangleEllipsis, Video } from 'lucide-react';
+import { Pencil, } from 'lucide-react';
 import { Friend } from '@/types/friend';
+
 type Props = {
   id: number | string;
 };
@@ -15,11 +18,11 @@ export async function FriendCard({ id }: Props) {
   const friends = await res.json();
   const friend = friends.find((f: Friend) => f.id == Number(id));
 
-  console.log(friend);
+ 
 
   const { name, status, picture, days_since_contact, tags, title, email } = friend!;
   return (
-    <div className="flex flex-col items-center border shadow-sm px-6 py-8 text-center hover:shadow-md transition cursor-pointer">
+    <div className="flex flex-col items-center border w-full shadow-sm p-4 text-center hover:shadow-md transition cursor-pointer">
       <Image
         alt={name}
         src={picture}
@@ -89,24 +92,3 @@ export const RelationshipGoalCard = () => {
   );
 };
 
-export const QuickCheckInCard = () => {
-  return (
-    <div className="border shadow-md p-4 mt-3">
-      <h4 className="font-semibold mb-3">Quick Check-in</h4>
-      <div className="grid grid-cols-3 gap-4 ">
-        <div className="flex flex-col gap-3 justify-center items-center border shadow-sm p-4">
-          <Phone />
-          <p className="text-sm text-muted-foreground">Call</p>
-        </div>
-        <div className="flex flex-col gap-3 justify-center items-center border shadow-sm p-4">
-          <RectangleEllipsis />
-          <p className="text-sm text-muted-foreground">Text</p>
-        </div>
-        <div className="flex flex-col gap-3 justify-center items-center border shadow-sm p-4">
-          <Video />
-          <p className="text-sm text-muted-foreground">Video</p>
-        </div>
-      </div>
-    </div>
-  );
-};

@@ -27,7 +27,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
       <NavigationMenuItem>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
           <Link
-            href="#"
+            href="/history"
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-[#475569] hover:bg-[#EEF2FF] hover:text-[#4F46E5] transition-colors"
           >
             <History /> History

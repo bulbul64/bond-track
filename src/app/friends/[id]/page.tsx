@@ -3,9 +3,9 @@ import {
   FriendCard,
   FriendInsightCard,
   FriendStatsCard,
-  QuickCheckInCard,
   RelationshipGoalCard,
 } from '@/components/friends/FriendCard';
+import { QuickCheckInCard } from '@/components/friends/QuickCheckInCard';
 import Timeline from '@/components/friends/timeline';
 import { Button } from '@/components/ui/button';
 import { Archive, BellRing, Trash2 } from 'lucide-react';
@@ -20,8 +20,7 @@ export const metadata: Metadata = {
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
 
-  console.log(id);
-
+ 
 
   const btnClass = 'w-full rounded-none h-10 flex items-center justify-center gap-2 text-sm cursor-pointer';
 
@@ -45,13 +44,12 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
             <div className="col-span-2 max-h-max">
               <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
-                <FriendStatsCard />
+                <FriendStatsCard  />
                 <ContactMetricsCard />
                 <FriendInsightCard />
                 <RelationshipGoalCard />
               </div>
-
-              <QuickCheckInCard />
+              <QuickCheckInCard id={id} />
 
             <Timeline />
             </div>

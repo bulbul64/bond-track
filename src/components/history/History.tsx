@@ -1,23 +1,24 @@
 'use client';
 
-import { Calendar, Phone, RectangleEllipsis, Video } from 'lucide-react';
 import { interactionHistoryContext } from '@/context/InteractionHistoryContext';
-import { useContext } from 'react';
 import { Interaction } from '@/types/friend';
+import { Calendar, Phone, RectangleEllipsis, Video } from 'lucide-react';
+import React, { useContext } from 'react'
+import EmptyState from '../ui/EmptyState';
 
+export default function History() {
 
-
-export default function Timeline() {
-
-
-  const context = useContext(interactionHistoryContext);
+const context = useContext(interactionHistoryContext);
 
   if (!context) return null;
   const { state } = context;
   console.log(state);
-
+  if (state.history.length === 0) return <EmptyState /> ;
   return (
-    <div className=" max-w-(--breakpoint-sm) col-end-3 px-6 py-12 md:py-20">
+   <>
+   
+   
+    <div className="mx-auto max-w-(--breakpoint-sm) col-end-3 px-6 py-12 md:py-20">
       <div className="relative ml-4">
         {/* Timeline line */}
         <div className="absolute inset-y-0 left-0 border-l-2" />
@@ -58,5 +59,6 @@ export default function Timeline() {
         })}
       </div>
     </div>
-  );
+   </>
+  )
 }
