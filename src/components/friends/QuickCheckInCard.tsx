@@ -5,6 +5,7 @@ import { Action, Friend } from '@/types/friend';
 import { Phone, RectangleEllipsis, Video } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast, } from 'sonner';
 
 export const QuickCheckInCard = ({ id }: { id: number | string }) => {
   const [data, setData] = useState<Friend[]>([]);
@@ -29,9 +30,9 @@ export const QuickCheckInCard = ({ id }: { id: number | string }) => {
   const { addInteraction } = context;
 
   const iconAndText = [
-    { icon: <Phone />, title: "Call", action: "call" },
-    { icon: <RectangleEllipsis />, title: "Text", action: "text" },
-    { icon: <Video />, title: "Video", action: "video" },
+    { icon: <Phone />, title: 'Call', action: 'call' },
+    { icon: <RectangleEllipsis />, title: 'Text', action: 'text' },
+    { icon: <Video />, title: 'Video', action: 'video' },
   ];
 
   return (
@@ -49,7 +50,11 @@ export const QuickCheckInCard = ({ id }: { id: number | string }) => {
             key={index}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => addInteraction(friend, item.action as Action)}
+            onClick={() => {
+              addInteraction(friend, item.action as Action);
+
+              toast.success(`${item.title} with ${friend.name}`);
+            }}
             className="cursor-pointer flex flex-col gap-3 justify-center items-center border shadow-sm p-4"
           >
             {item.icon}

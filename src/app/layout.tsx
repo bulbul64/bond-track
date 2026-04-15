@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import { InteractionHistoryProvider } from "@/context/InteractionHistoryContext";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +29,8 @@ export default function RootLayout({
         {children}
        <Footer />
         </InteractionHistoryProvider>
+
+        <Toaster position="top-right" />
       </body>
     </html>
   );
