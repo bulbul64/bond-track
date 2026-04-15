@@ -2,15 +2,17 @@
 
 ### The People Who Matter, All in One Place
 
-BondTrack is a modern relationship management web app that helps you stay connected with the people who matter most. Track interactions, monitor relationship health, and never miss important moments again.
+BondTrack is a modern relationship management web app that helps you stay connected with the people who matter most.  
+Track interactions, monitor relationship health, and never miss important moments again.
 
-🔗 **Live Site:** https://bond-track-alpha.vercel.app/
+🔗 Live Site: https://bond-track-alpha.vercel.app/
 
 ---
 
 ## 📌 About the Project
 
-BondTrack is designed to help you organize and maintain meaningful relationships. Whether it's friends, mentors, or colleagues — you can track your interactions and get insights on who needs your attention.
+BondTrack is designed to help you organize and maintain meaningful relationships.  
+Whether it's friends, mentors, or colleagues, you can track your interactions and get insights on who needs your attention.
 
 ---
 
@@ -35,11 +37,15 @@ BondTrack is designed to help you organize and maintain meaningful relationships
 - Strong bonds tracking
 - Interaction analytics (Call / Text / Video)
 
+---
+
 ### 👥 Friend Management
 
-- Add & manage friends
-- Tags system (mentor, team, etc.)
+- Add and manage friends
+- Tag system (mentor, team, etc.)
 - Dynamic data fetching
+
+---
 
 ### ⏱️ Interaction Tracking
 
@@ -47,35 +53,39 @@ BondTrack is designed to help you organize and maintain meaningful relationships
 - Filter system (All / Call / Text / Video)
 - Smooth animated transitions
 
+---
+
 ### 🎬 UI Animations
 
 - Framer Motion card animations
-- Button hover & tap effects
+- Button hover and tap effects
 - Smooth component transitions
-- Micro-interactions across UI
+- Micro interactions across UI
 
 ---
 
 ## 🖥️ Project Structure
 
+```
 src/
 ├── app/
-│ ├── analytics/
-│ ├── dashboard/
-│ ├── friends/
-│ ├── history/
+│   ├── analytics/
+│   ├── dashboard/
+│   ├── friends/
+│   ├── history/
 │
 ├── components/
-│ ├── common/
-│ ├── friends/
-│ ├── history/
-│ ├── home/
-│ ├── layout/
-│ ├── stats/
+│   ├── common/
+│   ├── friends/
+│   ├── history/
+│   ├── home/
+│   ├── layout/
+│   ├── stats/
 │
 ├── context/
 ├── lib/
 ├── types/
+```
 
 ---
 
@@ -87,25 +97,42 @@ cd bondtrack
 npm install
 npm run dev
 ```
-Open:
+
+---
+
+## ▶️ Run the Project
+
+Open in browser:
 http://localhost:3000
 
-📈 Future Improvements
-Authentication system
-Real-time updates
-Notifications & reminders
-Database integration
-🤝 Contributing
+---
 
-Contributions are welcome. Feel free to fork and submit PRs.
+## 📈 Future Improvements
 
-📄 License
+- Authentication system
+- Real-time updates
+- Notifications and reminders
+- Database integration
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.  
+Feel free to fork the project and submit a pull request.
+
+---
+
+## 📄 License
 
 MIT License
 
-❤️ Final Note
+---
 
-BondTrack helps you stay connected with the people who matter most.
+## ❤️ Final Note
+
+BondTrack helps you stay connected with the people who matter most.  
 Stay consistent. Stay intentional.
 
 © 2026 BondTrack
+```
