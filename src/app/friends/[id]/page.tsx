@@ -1,7 +1,9 @@
-
-
 import { FriendCard } from '@/components/friends/FriendCard';
-import {  FriendStatsCard, RelationshipGoalCard } from '@/components/friends/friendsCard/FriendStatsWidget';
+import { FriendStatsCard } from '@/components/friends/friendsCard/FriendStatsCard';
+import {
+ 
+  RelationshipGoalCard,
+} from '@/components/friends/friendsCard/FriendStatsWidget';
 import { QuickCheckInCard } from '@/components/friends/QuickCheckInCard';
 import Timeline from '@/components/friends/timeline';
 import Btn from '@/components/ui/Btn';
@@ -16,28 +18,25 @@ export const metadata: Metadata = {
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
 
- 
-
-
-
-
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
         <div className="max-w-6xl mx-auto mt-20">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <div className="col-span-1  max-h-max">
-              <FriendCard id={id}/>
+              <FriendCard id={id} />
               <Btn />
             </div>
             <div className="col-span-2 max-h-max">
-              <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
-                <FriendStatsCard  />
-                <RelationshipGoalCard />
+              <div className="h-70 overflow-y-auto">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
+                  <FriendStatsCard />
+                </div>
               </div>
+              <RelationshipGoalCard />
               <QuickCheckInCard id={id} />
 
-            <Timeline />
+              <Timeline />
             </div>
           </div>
         </div>
