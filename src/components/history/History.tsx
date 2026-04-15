@@ -12,7 +12,7 @@ const context = useContext(interactionHistoryContext);
 
   if (!context) return null;
   const { state } = context;
-  console.log(state);
+  // console.log(state);
   if (state.history.length === 0) return <EmptyState /> ;
   return (
    <>

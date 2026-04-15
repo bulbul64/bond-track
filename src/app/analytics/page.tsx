@@ -1,20 +1,12 @@
-import History from "@/components/history/History";
-
+import React from 'react'
 
 export const metadata = {
-  title: "BondTrack — History Page",
+  title: "BondTrack — Analytics Page",
   description:
     "A smart friendship management app to track interactions, manage relationships, and stay connected with the people who matter.",
 }
-
-export default function HistoryPage() {
-
-
-
-
+export default function page() {
   return (
-    <div>
-      <History />
-    </div>
-  );
+    <div>page</div>
+  )
 }
