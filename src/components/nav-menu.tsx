@@ -9,10 +9,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { ChartLine, History, House } from 'lucide-react';
+import { ChartLine, History, House,  } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
+
+
   const [activeBtn, setActiveBtn] = useState('Home');
   console.log(activeBtn);
 

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Logo = () => (
-  <h1 className="text-2xl font-bold tracking-tight">BondTrack</h1>
+  <Link href="/" className="text-2xl font-bold tracking-tight">BondTrack</Link>
 );

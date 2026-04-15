@@ -2,8 +2,9 @@
 
 import { Calendar, Phone, RectangleEllipsis, Video } from 'lucide-react';
 import { interactionHistoryContext } from '@/context/InteractionHistoryContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Interaction } from '@/types/friend';
+import { Button } from '../ui/button';
 
 
 
@@ -12,17 +13,54 @@ export default function Timeline() {
 
   const context = useContext(interactionHistoryContext);
 
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+    const activeBtn = (value: string) => {
+    setSelectedFilter(value);
+  }
+
   if (!context) return null;
   const { state } = context;
-  console.log(state);
+const filterText = [{
+  label: "All",
+  value: "all"
+},
+{
+  label: "Call",
+  value: "call"
+},
+{
+  label: "Text",
+  value: "text"
+},
+{
+  label: "Video",
+  value: "video"
+}]
+
+const filteredHistory = state.history.filter((item) => {
+  return selectedFilter === "all" || item.action === selectedFilter;
+});
 
   return (
     <div className=" max-w-(--breakpoint-sm) col-end-3 px-6 py-12 md:py-20">
+         <div className="mb-6 flex items-center gap-2 rounded-xl border bg-background p-2 w-fit">
+
+          {filterText.map((filter) => (
+            <Button
+             onClick={() => activeBtn(filter.value)}
+             className='cursor-pointer'
+             variant={`${selectedFilter === filter.value ? "default" : "outline"}`}
+             key={filter.value}>
+              {filter.label}
+            </Button>
+          ))}
+        </div>
       <div className="relative ml-4">
         {/* Timeline line */}
         <div className="absolute inset-y-0 left-0 border-l-2" />
 
-        {state.history.map((s: Interaction , index) => {
+        {filteredHistory.map((s: Interaction , index) => {
 
           const { name, action, time} = s;
           return (
@@ -34,7 +72,7 @@ export default function Timeline() {
 
               {/* Content */}
               <div className="space-y-3 pt-2 sm:pt-1">
-                <p className="font-medium text-base">{action}</p>
+                <p className="font-medium text-base"> {action} with {name}</p>
 
                 <div>
                   <h3 className="font-medium text-xl tracking-[-0.01em]">
@@ -46,12 +84,6 @@ export default function Timeline() {
                     <span>{time}</span>
                   </div>
                 </div>
-
-                <p className="text-pretty text-muted-foreground text-sm sm:text-base">
-                  Led the development of enterprise-scale web applications, mentored junior
-                  developers, and implemented best practices for code quality and performance
-                  optimization.
-                </p>
               </div>
             </div>
           );
