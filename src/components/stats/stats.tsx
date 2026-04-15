@@ -1,4 +1,7 @@
+'use client';
+
 import { Users, Heart, AlertCircle, Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 function Stats() {
   const stats = [
@@ -31,19 +34,29 @@ function Stats() {
   return (
     <div className="mx-auto max-w-5xl px-6">
       <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-        {stats.map((stat) => {
+        {stats.map((stat, index) => {
           const Icon = stat.icon;
 
           return (
-            <div key={stat.title} className="rounded-lg border bg-muted p-4">
+            <motion.div
+              key={stat.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="rounded-lg border bg-muted p-4"
+            >
               <Icon className="mb-2 h-7 w-7 stroke-[1.5px] text-primary" />
 
-              <span className="font-satoshi font-semibold text-3xl">{stat.value}</span>
+              <span className="font-satoshi font-semibold text-3xl">
+                {stat.value}
+              </span>
 
               <p className="mt-1 text-base font-medium">{stat.title}</p>
 
               <p className="mt-1 text-xs text-muted-foreground">{stat.desc}</p>
-            </div>
+            </motion.div>
           );
         })}
       </div>

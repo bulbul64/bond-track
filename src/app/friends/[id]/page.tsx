@@ -1,14 +1,10 @@
-import {
-  ContactMetricsCard,
-  FriendCard,
-  FriendInsightCard,
-  FriendStatsCard,
-  RelationshipGoalCard,
-} from '@/components/friends/FriendCard';
+
+
+import { FriendCard } from '@/components/friends/FriendCard';
+import {  FriendStatsCard, RelationshipGoalCard } from '@/components/friends/friendsCard/FriendStatsWidget';
 import { QuickCheckInCard } from '@/components/friends/QuickCheckInCard';
 import Timeline from '@/components/friends/timeline';
-import { Button } from '@/components/ui/button';
-import { Archive, BellRing, Trash2 } from 'lucide-react';
+import Btn from '@/components/ui/Btn';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
  
 
-  const btnClass = 'w-full rounded-none h-10 flex items-center justify-center gap-2 text-sm cursor-pointer';
+
 
 
   return (
@@ -32,21 +28,11 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <div className="col-span-1  max-h-max">
               <FriendCard id={id}/>
-              <Button className={btnClass}>
-                <BellRing /> Snooze 2 weeks{' '}
-              </Button>
-              <Button className={btnClass}>
-                <Archive /> Archive{' '}
-              </Button>
-              <Button className={btnClass}>
-                <Trash2 /> Delete{' '}
-              </Button>
+              <Btn />
             </div>
             <div className="col-span-2 max-h-max">
               <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
                 <FriendStatsCard  />
-                <ContactMetricsCard />
-                <FriendInsightCard />
                 <RelationshipGoalCard />
               </div>
               <QuickCheckInCard id={id} />

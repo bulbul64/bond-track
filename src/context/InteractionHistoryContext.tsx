@@ -32,7 +32,7 @@ const InteractionHistoryProvider = ({ children }: { children: React.ReactNode })
         name: friend.name,
         id: friend.id,
         action,
-        time: new Date().toLocaleString(),
+        time: new Date().toISOString(),
       },
     });
   };

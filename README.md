@@ -16,121 +16,96 @@ BondTrack is designed to help you organize and maintain meaningful relationships
 
 ## 🛠️ Technologies Used
 
-* **Next.js (App Router)**
-* **React.js**
-* **TypeScript**
-* **Tailwind CSS**
-* **shadcn/ui**
-* **Lucide Icons**
-* **Vercel (Deployment)**
+- Next.js (App Router)
+- React.js
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- Lucide Icons
+- Vercel
 
 ---
 
 ## ✨ Key Features
 
-### 1. 📊 Smart Relationship Dashboard
+### 📊 Smart Dashboard
 
-* View total connections, strong bonds, and people who need attention
-* Track monthly interactions (calls, messages, meetups)
+- Total connections overview
+- Strong bonds tracking
+- Interaction analytics (Call / Text / Video)
 
-### 2. 👥 Connection Management
+### 👥 Friend Management
 
-* Add and manage people in your circle
-* Tag relationships (e.g., mentor, team, startup)
+- Add & manage friends
+- Tags system (mentor, team, etc.)
+- Dynamic data fetching
 
-### 3. ⏱️ Interaction Tracking
+### ⏱️ Interaction Tracking
 
-* See last interaction time
-* Get status like:
+- Timeline view of all interactions
+- Filter system (All / Call / Text / Video)
+- Smooth animated transitions
 
-  * ✅ On Track
-  * ⚠️ Almost Due
-  * ❌ Overdue
+### 🎬 UI Animations
+
+- Framer Motion card animations
+- Button hover & tap effects
+- Smooth component transitions
+- Micro-interactions across UI
 
 ---
 
 ## 🖥️ Project Structure
 
-```
 src/
- ├── app/
- │   ├── analytics/
- │   ├── dashboard/
- │   ├── friends/
- │   ├── history/
- │
- ├── components/
- │   ├── common/
- │   ├── friends/
- │   ├── history/
- │   ├── home/
- │   ├── layout/
- │   ├── stats/
- │
- ├── context/
- ├── lib/
- ├── types/
-```
+├── app/
+│ ├── analytics/
+│ ├── dashboard/
+│ ├── friends/
+│ ├── history/
+│
+├── components/
+│ ├── common/
+│ ├── friends/
+│ ├── history/
+│ ├── home/
+│ ├── layout/
+│ ├── stats/
+│
+├── context/
+├── lib/
+├── types/
 
 ---
 
 ## ⚙️ Installation & Setup
 
-Follow these steps to run the project locally:
-
 ```bash
-# 1. Clone the repository
 git clone https://github.com/your-username/bondtrack.git
-
-# 2. Go to project folder
 cd bondtrack
-
-# 3. Install dependencies
 npm install
-
-# 4. Run the development server
 npm run dev
 ```
+Open:
+http://localhost:3000
 
-👉 তারপর ব্রাউজারে ওপেন করো:
-`http://localhost:3000`
+📈 Future Improvements
+Authentication system
+Real-time updates
+Notifications & reminders
+Database integration
+🤝 Contributing
 
----
+Contributions are welcome. Feel free to fork and submit PRs.
 
-## 📸 Preview
+📄 License
 
-* Dashboard with stats and insights
-* Connection cards with interaction status
-* Clean and modern UI with responsive design
+MIT License
 
----
+❤️ Final Note
 
-## 📈 Future Improvements
+BondTrack helps you stay connected with the people who matter most.
+Stay consistent. Stay intentional.
 
-* Authentication system
-* Real-time interaction tracking
-* Notifications & reminders
-* Data persistence (database integration)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork this repo and submit a pull request.
-
----
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
-
----
-
-## ❤️ Final Note
-
-BondTrack is built to help you value relationships in a structured and meaningful way.
-Stay connected. Stay thoughtful.
-
----
-
-**© 2026 BondTrack. All rights reserved.**
+© 2026 BondTrack
