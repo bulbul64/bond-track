@@ -28,15 +28,15 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Btn />
             </div>
             <div className="col-span-2 max-h-max">
-              <div className="h-70 overflow-y-auto">
+              <div className="h-24 overflow-y-auto">
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
-                  <FriendStatsCard />
+                  <FriendStatsCard id={id} />
                 </div>
               </div>
               <RelationshipGoalCard />
               <QuickCheckInCard id={id} />
 
-              <Timeline />
+              <Timeline id={id} />
             </div>
           </div>
         </div>

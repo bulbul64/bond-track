@@ -14,7 +14,7 @@ function formatDateTime(time: string) {
 
 
 
-export default function Timeline() {
+export default function Timeline({ id }: { id: string }) {
 
   const context = useContext(interactionHistoryContext);
 
@@ -34,7 +34,9 @@ export default function Timeline() {
     { label: "Video", value: "video" }
   ];
 
-  const filteredHistory = state.history.filter((item) => {
+  const filteredHistory = state.history.
+    filter((item: Interaction) => item.id === Number(id)).
+    filter((item) => {
     return selectedFilter === "all" || item.action === selectedFilter;
   });
 

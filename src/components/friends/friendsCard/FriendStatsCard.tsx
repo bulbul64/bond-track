@@ -23,17 +23,22 @@ function formatTimeAgo(time: string) {
   return `${Math.floor(days)} days ago`;
 }
 
-export const FriendStatsCard = () => {
+export const FriendStatsCard = ({ id }: { id: string }) => {
   const context = useContext(interactionHistoryContext);
 
   if (!context) return null;
   const { state } = context;
   const history = (state.history || []) as Interaction[];
+
+
+  const filteredHistory = history.filter((item) => item.id === Number(id));
+
+
   if (history.length === 0) return <p>No history</p>;
 
   return (
     <>
-      {history.map((item, index: number) => (
+      {filteredHistory.map((item, index: number) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 10 }}
