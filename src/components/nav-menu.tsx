@@ -1,26 +1,31 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, type ComponentProps } from 'react';
+import { useContext, type ComponentProps } from 'react';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { ChartLine, History, House,  } from 'lucide-react';
+import { ChartLine, History, House, LayoutDashboardIcon } from 'lucide-react';
 import { Button } from './ui/button';
+import { usePathname } from 'next/navigation';
+import { interactionHistoryContext } from '@/context/InteractionHistoryContext';
 
 export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
+  const pathname = usePathname();
+ const context = useContext(interactionHistoryContext);
+
+ if (!context) {
+  return null;
+}
+ 
+const { state } = context;
 
 
-  const [activeBtn, setActiveBtn] = useState('Home');
-  console.log(activeBtn);
+console.log(state)
 
-  const handleClick = (title: string) => {
-    setActiveBtn(title);
-  };
 
   const menuItems = [
     {
@@ -38,7 +43,17 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
       icon: <ChartLine />,
       link: '/analytics',
     },
+    {
+      title: 'Dashboard',
+      icon: <LayoutDashboardIcon />,
+      link: '/friends',
+    },
   ];
+
+  const isActive = (itemLink: string) => {
+  if (itemLink === '/') return pathname === '/';
+  return pathname.startsWith(itemLink);
+};
 
   return (
     <NavigationMenu {...props}>
@@ -46,12 +61,11 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.title}>
             <NavigationMenuLink asChild>
-              <Link href={item.link} className={navigationMenuTriggerStyle()}>
+              <Link href={item.link}>
                 <Button
-                  className="cursor-pointer"
-                  onClick={() => handleClick(item.title)}
-                  variant={activeBtn === item.title ? 'default' : 'ghost'}
-                >
+                  className="cursor-pointer w-full justify-start"
+                 variant={isActive(item.link) ? 'default' : 'ghost'}
+                > 
                   {item.icon}
                   {item.title}
                 </Button>

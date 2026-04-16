@@ -25,7 +25,7 @@ export default function InteractionAnalytics() {
 
   const { call, text, video } = counts;
 
-  const total = call + text + video || 1;
+  const total = call + text + video || 0;
 
   const callPercent = (call / total) * 100;
   const textPercent = (text / total) * 100;

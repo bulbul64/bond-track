@@ -7,6 +7,9 @@ import React, { useContext, useState } from 'react';
 import EmptyState from '../ui/EmptyState';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
+function formatDateTime(time: string) {
+  return new Date(time).toLocaleString();
+}
 
 export default function History() {
   const context = useContext(interactionHistoryContext);
@@ -89,7 +92,7 @@ export default function History() {
 
                     <div className="mt-2 flex items-center gap-2 text-sm">
                       <Calendar className="h-4 w-4" />
-                      <span>{time}</span>
+                      <span>{formatDateTime(time)}</span>
                     </div>
                   </div>
                 </div>

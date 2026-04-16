@@ -30,7 +30,7 @@ export default function RootLayout({
        <Footer />
         </InteractionHistoryProvider>
 
-        <Toaster position="top-right" />
+        <Toaster position="top-center" />
       </body>
     </html>
   );
