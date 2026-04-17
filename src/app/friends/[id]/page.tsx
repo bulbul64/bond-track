@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <main className="flex-1">
         <div className="max-w-6xl mx-auto mt-20">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-            <div className="col-span-1  max-h-max">
+            <div className="col-span-1 space-y-3 pl-4 max-h-max">
               <FriendCard id={id} />
               <Btn />
             </div>
